@@ -1,7 +1,12 @@
 FROM centos:7
 MAINTAINER Zafar Khan
-LABEL Remarks="This is a dockerfile example for Centos system" 
-RUN yum -y install httpd; yum clean all; systemctl enable httpd.service /var/www/html/
+RUN yum install -y httpd\
+zip\
+unzip
+ADD https://www.free-css.com/assets/free-css-templates/download/page247/kindle.zip /var/www/html/
 WORKDIR /var/www/html
-CMD [echo "Welcom Zafar Khan", "run"]
+RUN unzip kindle.zip
+RUN cp -rvf markups-kindle/*.
+RUN rm -rf_MASCOX markups-kindle.zip
+CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
 EXPOSE 80
