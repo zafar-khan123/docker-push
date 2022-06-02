@@ -1,6 +1,6 @@
-FROM centos:7
+FROM ubuntu
 MAINTAINER Zafar Khan
-RUN yum install -y httpd
+RUN apt-get install -y httpd
 WORKDIR /var/www/html
 CMD [echo "Welcom Zafar Khan", "run"]
 EXPOSE 80
